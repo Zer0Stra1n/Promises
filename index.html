@@ -8,11 +8,380 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
+
+    <style>
+        html {
+            min-height: 100%;
+            position: relative;
+            font-size: 16px;
+            background-color: rgba(236, 236, 236, 1);
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+            margin-bottom: 80px;
+        }
+
+        header {
+            height: 80px;
+            background-color: rgba(126, 192, 238, .5);
+            margin-bottom: 1rem;
+        }
+
+        main {
+            max-width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .charmander {
+            height: 0.75em;
+            width: 0.75em;
+            position: absolute;
+            top: 21%;
+            left: 5%;
+            box-shadow: 3.75em 0.75em 0 #010101, 4.5em 0.75em 0 #010101, 5.25em 0.75em 0 #010101, 6em 0.75em 0 #010101, 13.5em 0.75em 0 #010101, 3em 1.5em 0 #010101, 3.75em 1.5em 0 #FF931C, 4.5em 1.5em 0 #FF931C, 5.25em 1.5em 0 #FF931C, 6em 1.5em 0 #FF931C, 6.75em 1.5em 0 #010101, 12.75em 1.5em 0 #010101, 13.5em 1.5em 0 #FF0000, 14.25em 1.5em 0 #010101, 2.25em 2.25em 0 #010101, 3em 2.25em 0 #FF931C, 3.75em 2.25em 0 #FF931C, 4.5em 2.25em 0 #FF931C, 5.25em 2.25em 0 #FF931C, 6em 2.25em 0 #FF931C, 6.75em 2.25em 0 #FF931C, 7.5em 2.25em 0 #010101, 12.75em 2.25em 0 #010101, 13.5em 2.25em 0 #FF0000, 14.25em 2.25em 0 #FF0000, 15em 2.25em 0 #010101, 2.25em 3em 0 #010101, 3em 3em 0 #FF931C, 3.75em 3em 0 #FF931C, 4.5em 3em 0 #FF931C, 5.25em 3em 0 #FF931C, 6em 3em 0 #FF931C, 6.75em 3em 0 #FF931C, 7.5em 3em 0 #010101, 12.75em 3em 0 #010101, 13.5em 3em 0 #FF0000, 14.25em 3em 0 #FF0000, 15em 3em 0 #010101, 1.5em 3.75em 0 #010101, 2.25em 3.75em 0 #FF931C, 3em 3.75em 0 #FF931C, 3.75em 3.75em 0 #FF931C, 4.5em 3.75em 0 #FF931C, 5.25em 3.75em 0 #FF931C, 6em 3.75em 0 #FF931C, 6.75em 3.75em 0 #FF931C, 7.5em 3.75em 0 #FF931C, 8.25em 3.75em 0 #010101, 12em 3.75em 0 #010101, 12.75em 3.75em 0 #FF0000, 13.5em 3.75em 0 #FF0000, 14.25em 3.75em 0 #FF931C, 15em 3.75em 0 #FF0000, 15.75em 3.75em 0 #010101, 0.75em 4.5em 0 #010101, 1.5em 4.5em 0 #FF931C, 2.25em 4.5em 0 #FF931C, 3em 4.5em 0 #FF931C, 3.75em 4.5em 0 #FF931C, 4.5em 4.5em 0 #FFFFFF, 5.25em 4.5em 0 #010101, 6em 4.5em 0 #FF931C, 6.75em 4.5em 0 #FF931C, 7.5em 4.5em 0 #FF931C, 8.25em 4.5em 0 #010101, 12em 4.5em 0 #010101, 12.75em 4.5em 0 #FF0000, 13.5em 4.5em 0 #FF931C, 14.25em 4.5em 0 #EEF30C, 15em 4.5em 0 #FF0000, 15.75em 4.5em 0 #010101, 0.75em 5.25em 0 #010101, 1.5em 5.25em 0 #FF931C, 2.25em 5.25em 0 #FF931C, 3em 5.25em 0 #FF931C, 3.75em 5.25em 0 #FF931C, 4.5em 5.25em 0 #010101, 5.25em 5.25em 0 #010101, 6em 5.25em 0 #FF931C, 6.75em 5.25em 0 #FF931C, 7.5em 5.25em 0 #FF931C, 8.25em 5.25em 0 #FF931C, 9em 5.25em 0 #010101, 12em 5.25em 0 #010101, 12.75em 5.25em 0 #FF0000, 13.5em 5.25em 0 #EEF30C, 14.25em 5.25em 0 #EEF30C, 15em 5.25em 0 #FF0000, 15.75em 5.25em 0 #010101, 0.75em 6em 0 #010101, 1.5em 6em 0 #FF931C, 2.25em 6em 0 #FF931C, 3em 6em 0 #FF931C, 3.75em 6em 0 #FF931C, 4.5em 6em 0 #010101, 5.25em 6em 0 #010101, 6em 6em 0 #FF931C, 6.75em 6em 0 #FF931C, 7.5em 6em 0 #FF931C, 8.25em 6em 0 #FF931C, 9em 6em 0 #010101, 12.75em 6em 0 #010101, 13.5em 6em 0 #EEF30C, 14.25em 6em 0 #010101, 15em 6em 0 #010101, 1.5em 6.75em 0 #010101, 2.25em 6.75em 0 #FF931C, 3em 6.75em 0 #FF931C, 3.75em 6.75em 0 #FF931C, 4.5em 6.75em 0 #FF931C, 5.25em 6.75em 0 #FF931C, 6em 6.75em 0 #FF931C, 6.75em 6.75em 0 #FF931C, 7.5em 6.75em 0 #FF931C, 8.25em 6.75em 0 #FF931C, 9em 6.75em 0 #FF931C, 9.75em 6.75em 0 #010101, 12.75em 6.75em 0 #010101, 13.5em 6.75em 0 #FF931C, 14.25em 6.75em 0 #010101, 2.25em 7.5em 0 #010101, 3em 7.5em 0 #010101, 3.75em 7.5em 0 #FF931C, 4.5em 7.5em 0 #FF931C, 5.25em 7.5em 0 #FF931C, 6em 7.5em 0 #FF931C, 6.75em 7.5em 0 #FF931C, 7.5em 7.5em 0 #FF931C, 8.25em 7.5em 0 #FF931C, 9em 7.5em 0 #FF931C, 9.75em 7.5em 0 #FF931C, 10.5em 7.5em 0 #010101, 12em 7.5em 0 #010101, 12.75em 7.5em 0 #FF931C, 13.5em 7.5em 0 #FF931C, 14.25em 7.5em 0 #010101, 3.75em 8.25em 0 #010101, 4.5em 8.25em 0 #010101, 5.25em 8.25em 0 #010101, 6em 8.25em 0 #FF931C, 6.75em 8.25em 0 #FF931C, 7.5em 8.25em 0 #010101, 8.25em 8.25em 0 #FF931C, 9em 8.25em 0 #FF931C, 9.75em 8.25em 0 #FF931C, 10.5em 8.25em 0 #010101, 11.25em 8.25em 0 #010101, 12em 8.25em 0 #FF931C, 12.75em 8.25em 0 #FF931C, 13.5em 8.25em 0 #010101, 4.5em 9em 0 #010101, 5.25em 9em 0 #EEF30C, 6em 9em 0 #EEF30C, 6.75em 9em 0 #010101, 7.5em 9em 0 #FF931C, 8.25em 9em 0 #FF931C, 9em 9em 0 #FF931C, 9.75em 9em 0 #FF931C, 10.5em 9em 0 #FF931C, 11.25em 9em 0 #010101, 12em 9em 0 #FF931C, 12.75em 9em 0 #FF931C, 13.5em 9em 0 #010101, 4.5em 9.75em 0 #010101, 5.25em 9.75em 0 #EEF30C, 6em 9.75em 0 #EEF30C, 6.75em 9.75em 0 #EEF30C, 7.5em 9.75em 0 #010101, 8.25em 9.75em 0 #010101, 9em 9.75em 0 #FF931C, 9.75em 9.75em 0 #FF931C, 10.5em 9.75em 0 #FF931C, 11.25em 9.75em 0 #010101, 12em 9.75em 0 #FF931C, 12.75em 9.75em 0 #010101, 3.75em 10.5em 0 #010101, 4.5em 10.5em 0 #FFFFFF, 5.25em 10.5em 0 #010101, 6em 10.5em 0 #EEF30C, 6.75em 10.5em 0 #EEF30C, 7.5em 10.5em 0 #EEF30C, 8.25em 10.5em 0 #FF931C, 9em 10.5em 0 #FF931C, 9.75em 10.5em 0 #FF931C, 10.5em 10.5em 0 #FF931C, 11.25em 10.5em 0 #010101, 12em 10.5em 0 #010101, 4.5em 11.25em 0 #010101, 5.25em 11.25em 0 #010101, 6em 11.25em 0 #010101, 6.75em 11.25em 0 #EEF30C, 7.5em 11.25em 0 #EEF30C, 8.25em 11.25em 0 #FF931C, 9em 11.25em 0 #FF931C, 9.75em 11.25em 0 #FF931C, 10.5em 11.25em 0 #010101, 11.25em 11.25em 0 #010101, 6.75em 12em 0 #010101, 7.5em 12em 0 #010101, 8.25em 12em 0 #010101, 9em 12em 0 #FF931C, 9.75em 12em 0 #010101, 10.5em 12em 0 #010101, 7.5em 12.75em 0 #010101, 8.25em 12.75em 0 #FFFFFF, 9em 12.75em 0 #FF931C, 9.75em 12.75em 0 #FFFFFF, 10.5em 12.75em 0 #010101, 8.25em 13.5em 0 #010101, 9em 13.5em 0 #010101, 9.75em 13.5em 0 #010101;
+        }
+
+        .bulbasaur {
+            height: 0.75em;
+            width: 0.75em;
+            position: absolute;
+            top: 21%;
+            left: 5%;
+            box-shadow: 9.75em 0.75em 0 #010101, 10.5em 0.75em 0 #010101, 11.25em 0.75em 0 #010101, 12em 0.75em 0 #010101, 9em 1.5em 0 #010101, 9.75em 1.5em 0 #95B90B, 10.5em 1.5em 0 #95B90B, 11.25em 1.5em 0 #95B90B, 12em 1.5em 0 #95B90B, 12.75em 1.5em 0 #010101, 7.5em 2.25em 0 #010101, 8.25em 2.25em 0 #010101, 9em 2.25em 0 #010101, 9.75em 2.25em 0 #95B90B, 10.5em 2.25em 0 #95B90B, 11.25em 2.25em 0 #95B90B, 12em 2.25em 0 #95B90B, 12.75em 2.25em 0 #010101, 6em 3em 0 #010101, 6.75em 3em 0 #010101, 7.5em 3em 0 #95B90B, 8.25em 3em 0 #95B90B, 9em 3em 0 #357E35, 9.75em 3em 0 #95B90B, 10.5em 3em 0 #95B90B, 11.25em 3em 0 #357E35, 12em 3em 0 #95B90B, 12.75em 3em 0 #010101, 13.5em 3em 0 #010101, 3em 3.75em 0 #010101, 3.75em 3.75em 0 #010101, 5.25em 3.75em 0 #010101, 6em 3.75em 0 #95B90B, 6.75em 3.75em 0 #95B90B, 7.5em 3.75em 0 #95B90B, 8.25em 3.75em 0 #357E35, 9em 3.75em 0 #357E35, 9.75em 3.75em 0 #95B90B, 10.5em 3.75em 0 #95B90B, 11.25em 3.75em 0 #357E35, 12em 3.75em 0 #95B90B, 12.75em 3.75em 0 #95B90B, 13.5em 3.75em 0 #95B90B, 14.25em 3.75em 0 #010101, 2.25em 4.5em 0 #010101, 3em 4.5em 0 #87C0EA, 3.75em 4.5em 0 #87C0EA, 4.5em 4.5em 0 #010101, 5.25em 4.5em 0 #010101, 6em 4.5em 0 #95B90B, 6.75em 4.5em 0 #95B90B, 7.5em 4.5em 0 #357E35, 8.25em 4.5em 0 #95B90B, 9em 4.5em 0 #357E35, 9.75em 4.5em 0 #95B90B, 10.5em 4.5em 0 #95B90B, 11.25em 4.5em 0 #95B90B, 12em 4.5em 0 #357E35, 12.75em 4.5em 0 #95B90B, 13.5em 4.5em 0 #95B90B, 14.25em 4.5em 0 #95B90B, 15em 4.5em 0 #010101, 2.25em 5.25em 0 #010101, 3em 5.25em 0 #87C0EA, 3.75em 5.25em 0 #87C0EA, 4.5em 5.25em 0 #87C0EA, 5.25em 5.25em 0 #010101, 6em 5.25em 0 #010101, 6.75em 5.25em 0 #357E35, 7.5em 5.25em 0 #95B90B, 8.25em 5.25em 0 #357E35, 9em 5.25em 0 #95B90B, 9.75em 5.25em 0 #95B90B, 10.5em 5.25em 0 #95B90B, 11.25em 5.25em 0 #95B90B, 12em 5.25em 0 #95B90B, 12.75em 5.25em 0 #357E35, 13.5em 5.25em 0 #95B90B, 14.25em 5.25em 0 #95B90B, 15em 5.25em 0 #010101, 2.25em 6em 0 #010101, 3em 6em 0 #87C0EA, 3.75em 6em 0 #87C0EA, 4.5em 6em 0 #87C0EA, 5.25em 6em 0 #87C0EA, 6em 6em 0 #0057A8, 6.75em 6em 0 #010101, 7.5em 6em 0 #95B90B, 8.25em 6em 0 #357E35, 9em 6em 0 #95B90B, 9.75em 6em 0 #95B90B, 10.5em 6em 0 #95B90B, 11.25em 6em 0 #95B90B, 12em 6em 0 #95B90B, 12.75em 6em 0 #357E35, 13.5em 6em 0 #95B90B, 14.25em 6em 0 #95B90B, 15em 6em 0 #010101, 1.5em 6.75em 0 #010101, 2.25em 6.75em 0 #87C0EA, 3em 6.75em 0 #87C0EA, 3.75em 6.75em 0 #0057A8, 4.5em 6.75em 0 #87C0EA, 5.25em 6.75em 0 #0057A8, 6em 6.75em 0 #0057A8, 6.75em 6.75em 0 #87C0EA, 7.5em 6.75em 0 #010101, 8.25em 6.75em 0 #010101, 9em 6.75em 0 #010101, 9.75em 6.75em 0 #95B90B, 10.5em 6.75em 0 #95B90B, 11.25em 6.75em 0 #95B90B, 12em 6.75em 0 #95B90B, 12.75em 6.75em 0 #357E35, 13.5em 6.75em 0 #95B90B, 14.25em 6.75em 0 #010101, 0.75em 7.5em 0 #010101, 1.5em 7.5em 0 #010101, 2.25em 7.5em 0 #0057A8, 3em 7.5em 0 #87C0EA, 3.75em 7.5em 0 #87C0EA, 4.5em 7.5em 0 #87C0EA, 5.25em 7.5em 0 #87C0EA, 6em 7.5em 0 #87C0EA, 6.75em 7.5em 0 #87C0EA, 7.5em 7.5em 0 #87C0EA, 8.25em 7.5em 0 #87C0EA, 9em 7.5em 0 #010101, 9.75em 7.5em 0 #95B90B, 10.5em 7.5em 0 #95B90B, 11.25em 7.5em 0 #95B90B, 12em 7.5em 0 #010101, 12.75em 7.5em 0 #010101, 13.5em 7.5em 0 #010101, 14.25em 7.5em 0 #010101, 0.75em 8.25em 0 #010101, 1.5em 8.25em 0 #010101, 2.25em 8.25em 0 #0057A8, 3em 8.25em 0 #87C0EA, 3.75em 8.25em 0 #87C0EA, 4.5em 8.25em 0 #87C0EA, 5.25em 8.25em 0 #0057A8, 6em 8.25em 0 #87C0EA, 6.75em 8.25em 0 #87C0EA, 7.5em 8.25em 0 #87C0EA, 8.25em 8.25em 0 #010101, 9em 8.25em 0 #0057A8, 9.75em 8.25em 0 #010101, 10.5em 8.25em 0 #010101, 11.25em 8.25em 0 #010101, 12em 8.25em 0 #0057A8, 12.75em 8.25em 0 #0057A8, 13.5em 8.25em 0 #0057A8, 14.25em 8.25em 0 #010101, 0.75em 9em 0 #010102, 1.5em 9em 0 #87C0EA, 2.25em 9em 0 #87C0EA, 3em 9em 0 #87C0EA, 3.75em 9em 0 #87C0EA, 4.5em 9em 0 #0057A8, 5.25em 9em 0 #87C0EA, 6em 9em 0 #010101, 6.75em 9em 0 #010101, 7.5em 9em 0 #87C0EA, 8.25em 9em 0 #0057A8, 9em 9em 0 #0057A8, 9.75em 9em 0 #0057A8, 10.5em 9em 0 #0057A8, 11.25em 9em 0 #0057A8, 12em 9em 0 #010101, 12.75em 9em 0 #0057A8, 13.5em 9em 0 #FFFFFF, 14.25em 9em 0 #010101, 0.75em 9.75em 0 #010103, 1.5em 9.75em 0 #0057A8, 2.25em 9.75em 0 #87C0EA, 3em 9.75em 0 #87C0EA, 3.75em 9.75em 0 #87C0EA, 4.5em 9.75em 0 #87C0EA, 5.25em 9.75em 0 #010101, 6em 9.75em 0 #FF0000, 6.75em 9.75em 0 #FFFFFF, 7.5em 9.75em 0 #FFFFFF, 8.25em 9.75em 0 #0057A8, 9em 9.75em 0 #0057A8, 9.75em 9.75em 0 #010101, 10.5em 9.75em 0 #0057A8, 11.25em 9.75em 0 #0057A8, 12em 9.75em 0 #010101, 12.75em 9.75em 0 #010101, 13.5em 9.75em 0 #010101, 1.5em 10.5em 0 #010101, 2.25em 10.5em 0 #0057A8, 3em 10.5em 0 #87C0EA, 3.75em 10.5em 0 #87C0EA, 4.5em 10.5em 0 #87C0EA, 5.25em 10.5em 0 #010101, 6em 10.5em 0 #FF0000, 6.75em 10.5em 0 #FFFFFF, 7.5em 10.5em 0 #87C0EA, 8.25em 10.5em 0 #0057A8, 9em 10.5em 0 #010101, 9.75em 10.5em 0 #0057A8, 10.5em 10.5em 0 #0057A8, 11.25em 10.5em 0 #010101, 2.25em 11.25em 0 #010101, 3em 11.25em 0 #010101, 3.75em 11.25em 0 #0057A8, 4.5em 11.25em 0 #0057A8, 5.25em 11.25em 0 #0057A8, 6em 11.25em 0 #0057A8, 6.75em 11.25em 0 #0057A8, 7.5em 11.25em 0 #0057A8, 8.25em 11.25em 0 #010101, 9em 11.25em 0 #0057A8, 9.75em 11.25em 0 #0057A8, 10.5em 11.25em 0 #0057A8, 11.25em 11.25em 0 #010101, 3.75em 12em 0 #010101, 4.5em 12em 0 #010101, 5.25em 12em 0 #010101, 6em 12em 0 #010101, 6.75em 12em 0 #010101, 7.5em 12em 0 #010101, 8.25em 12em 0 #010101, 9em 12em 0 #FFFFFF, 9.75em 12em 0 #0057A8, 10.5em 12em 0 #FFFFFF, 11.25em 12em 0 #010101, 9em 12.75em 0 #010101, 9.75em 12.75em 0 #010101, 10.5em 12.75em 0 #010101;
+        }
+
+        .squirtle {
+            height: 0.75em;
+            width: 0.75em;
+            position: absolute;
+            top: 21%;
+            left: 5%;
+            box-shadow: 3em 0.75em 0 #010101, 3.75em 0.75em 0 #010101, 4.5em 0.75em 0 #010101, 5.25em 0.75em 0 #010101, 12.75em 0.75em 0 #010101, 13.5em 0.75em 0 #010101, 14.25em 0.75em 0 #010101, 2.25em 1.5em 0 #010101, 3em 1.5em 0 #87C0EA, 3.75em 1.5em 0 #87C0EA, 4.5em 1.5em 0 #87C0EA, 5.25em 1.5em 0 #87C0EA, 6em 1.5em 0 #010101, 6.75em 1.5em 0 #010101, 12em 1.5em 0 #010101, 12.75em 1.5em 0 #87C0EA, 13.5em 1.5em 0 #87C0EA, 14.25em 1.5em 0 #87C0EA, 15em 1.5em 0 #010101, 1.5em 2.25em 0 #010101, 2.25em 2.25em 0 #87C0EA, 3em 2.25em 0 #87C0EA, 3.75em 2.25em 0 #87C0EA, 4.5em 2.25em 0 #87C0EA, 5.25em 2.25em 0 #87C0EA, 6em 2.25em 0 #87C0EA, 6.75em 2.25em 0 #87C0EA, 7.5em 2.25em 0 #010101, 8.25em 2.25em 0 #010101, 11.25em 2.25em 0 #010101, 12em 2.25em 0 #87C0EA, 12.75em 2.25em 0 #87C0EA, 13.5em 2.25em 0 #87C0EA, 14.25em 2.25em 0 #87C0EA, 15em 2.25em 0 #87C0EA, 15.75em 2.25em 0 #010101, 1.5em 3em 0 #010101, 2.25em 3em 0 #87C0EA, 3em 3em 0 #87C0EA, 3.75em 3em 0 #87C0EA, 4.5em 3em 0 #87C0EA, 5.25em 3em 0 #87C0EA, 6em 3em 0 #87C0EA, 6.75em 3em 0 #87C0EA, 7.5em 3em 0 #010101, 8.25em 3em 0 #663300, 9em 3em 0 #010101, 9.75em 3em 0 #010101, 11.25em 3em 0 #010101, 12em 3em 0 #87C0EA, 12.75em 3em 0 #87C0EA, 13.5em 3em 0 #87C0EA, 14.25em 3em 0 #010101, 15em 3em 0 #87C0EA, 15.75em 3em 0 #010101, 0.75em 3.75em 0 #010101, 1.5em 3.75em 0 #663300, 2.25em 3.75em 0 #87C0EA, 3em 3.75em 0 #87C0EA, 3.75em 3.75em 0 #87C0EA, 4.5em 3.75em 0 #87C0EA, 5.25em 3.75em 0 #87C0EA, 6em 3.75em 0 #87C0EA, 6.75em 3.75em 0 #87C0EA, 7.5em 3.75em 0 #87C0EA, 8.25em 3.75em 0 #663300, 9em 3.75em 0 #663299, 9.75em 3.75em 0 #663300, 10.5em 3.75em 0 #010101, 11.25em 3.75em 0 #87C0EA, 12em 3.75em 0 #87C0EA, 12.75em 3.75em 0 #87C0EA, 13.5em 3.75em 0 #010101, 14.25em 3.75em 0 #87C0EA, 15em 3.75em 0 #87C0EA, 15.75em 3.75em 0 #010101, 0.75em 4.5em 0 #010101, 1.5em 4.5em 0 #87C0EA, 2.25em 4.5em 0 #87C0EA, 3em 4.5em 0 #87C0EA, 3.75em 4.5em 0 #87C0EA, 4.5em 4.5em 0 #FFFFFF, 5.25em 4.5em 0 #010101, 6em 4.5em 0 #87C0EA, 6.75em 4.5em 0 #87C0EA, 7.5em 4.5em 0 #87C0EA, 8.25em 4.5em 0 #FFFFFF, 9em 4.5em 0 #663300, 9.75em 4.5em 0 #663301, 10.5em 4.5em 0 #663303, 11.25em 4.5em 0 #010101, 12em 4.5em 0 #87C0EA, 12.75em 4.5em 0 #87C0EA, 13.5em 4.5em 0 #010101, 14.25em 4.5em 0 #87C0EA, 15em 4.5em 0 #010101, 0.75em 5.25em 0 #010101, 1.5em 5.25em 0 #87C0EA, 2.25em 5.25em 0 #87C0EA, 3em 5.25em 0 #87C0EA, 3.75em 5.25em 0 #87C0EA, 4.5em 5.25em 0 #010101, 5.25em 5.25em 0 #663300, 6em 5.25em 0 #87C0EA, 6.75em 5.25em 0 #87C0EA, 7.5em 5.25em 0 #87C0EA, 8.25em 5.25em 0 #FFFFFF, 9em 5.25em 0 #663301, 9.75em 5.25em 0 #663302, 10.5em 5.25em 0 #663303, 11.25em 5.25em 0 #010101, 12em 5.25em 0 #87C0EA, 12.75em 5.25em 0 #010101, 13.5em 5.25em 0 #010101, 14.25em 5.25em 0 #010101, 1.5em 6em 0 #010101, 2.25em 6em 0 #87C0EA, 3em 6em 0 #87C0EA, 3.75em 6em 0 #87C0EA, 4.5em 6em 0 #010101, 5.25em 6em 0 #663300, 6em 6em 0 #87C0EA, 6.75em 6em 0 #87C0EA, 7.5em 6em 0 #87C0EA, 8.25em 6em 0 #010101, 9em 6em 0 #FFFFFF, 9.75em 6em 0 #663303, 10.5em 6em 0 #663304, 11.25em 6em 0 #663305, 12em 6em 0 #010101, 12.75em 6em 0 #010101, 2.25em 6.75em 0 #010101, 3em 6.75em 0 #010101, 3.75em 6.75em 0 #87C0EA, 4.5em 6.75em 0 #87C0EA, 5.25em 6.75em 0 #87C0EA, 6em 6.75em 0 #87C0EA, 6.75em 6.75em 0 #010101, 7.5em 6.75em 0 #010101, 8.25em 6.75em 0 #87C0EA, 9em 6.75em 0 #87C0EA, 9.75em 6.75em 0 #FFFFFF, 10.5em 6.75em 0 #663305, 11.25em 6.75em 0 #663306, 12em 6.75em 0 #010101, 2.25em 7.5em 0 #010101, 3em 7.5em 0 #87C0EA, 3.75em 7.5em 0 #010101, 4.5em 7.5em 0 #010101, 5.25em 7.5em 0 #010101, 6em 7.5em 0 #010101, 6.75em 7.5em 0 #87C0EA, 7.5em 7.5em 0 #87C0EA, 8.25em 7.5em 0 #87C0EA, 9em 7.5em 0 #87C0EA, 9.75em 7.5em 0 #FFFFFF, 10.5em 7.5em 0 #663306, 11.25em 7.5em 0 #663307, 12em 7.5em 0 #010101, 3em 8.25em 0 #010101, 3.75em 8.25em 0 #010101, 4.5em 8.25em 0 #EEF30C, 5.25em 8.25em 0 #EEF30C, 6em 8.25em 0 #010101, 6.75em 8.25em 0 #87C0EA, 7.5em 8.25em 0 #87C0EA, 8.25em 8.25em 0 #87C0EA, 9em 8.25em 0 #010101, 9.75em 8.25em 0 #FFFFFF, 10.5em 8.25em 0 #663307, 11.25em 8.25em 0 #663308, 12em 8.25em 0 #010101, 4.5em 9em 0 #010101, 5.25em 9em 0 #EEF30C, 6em 9em 0 #EEF30C, 6.75em 9em 0 #010101, 7.5em 9em 0 #010101, 8.25em 9em 0 #010101, 9em 9em 0 #010101, 9.75em 9em 0 #FFFFFF, 10.5em 9em 0 #663308, 11.25em 9em 0 #663309, 12em 9em 0 #010101, 3.75em 9.75em 0 #010101, 4.5em 9.75em 0 #87C0EA, 5.25em 9.75em 0 #010101, 6em 9.75em 0 #EEF30C, 6.75em 9.75em 0 #EEF30C, 7.5em 9.75em 0 #EEF30C, 8.25em 9.75em 0 #EEF30C, 9em 9.75em 0 #EEF30C, 9.75em 9.75em 0 #010101, 10.5em 9.75em 0 #FFFFFF, 11.25em 9.75em 0 #010101, 4.5em 10.5em 0 #010101, 5.25em 10.5em 0 #010101, 6em 10.5em 0 #010101, 6.75em 10.5em 0 #010101, 7.5em 10.5em 0 #EEF30C, 8.25em 10.5em 0 #EEF30C, 9em 10.5em 0 #87C0EA, 9.75em 10.5em 0 #010101, 10.5em 10.5em 0 #FFFFFF, 11.25em 10.5em 0 #010101, 6.75em 11.25em 0 #010101, 7.5em 11.25em 0 #010101, 8.25em 11.25em 0 #010101, 9em 11.25em 0 #87C0EA, 9.75em 11.25em 0 #010101, 10.5em 11.25em 0 #010101, 7.5em 12em 0 #010101, 8.25em 12em 0 #87C0EA, 9em 12em 0 #87C0EA, 9.75em 12em 0 #87C0EA, 10.5em 12em 0 #010101, 8.25em 12.75em 0 #010101, 9em 12.75em 0 #010101, 9.75em 12.75em 0 #010101;
+        }
+
+        .pokeball {
+            position: absolute;
+            top: 40%;
+            left: 14%;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient( #E53935 0%,
+            #E53935 47%,
+            #333 47%,
+            #333 53%,
+            #FFF 53%,
+            #FFF 100%);
+            border: 6px solid #333;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+            inset 20px 0 0 rgba(255, 255, 255, 0.1),
+            inset -15px 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .pokeball:before,
+        .pokeball:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pokeball:before {
+            width: 25px;
+            height: 25px;
+            background-color: #FFF;
+            border: 5px solid #333;
+            box-shadow: 5px 1px 0px rgba(0, 0, 0, 0.1),
+            -5px -1px 0px rgba(255, 255, 255, 0.1);
+        }
+
+        .pokeball:after {
+            width: 10px;
+            height: 10px;
+            border: 5px double #fff;
+            background-color: #333;
+        }
+
+        /** Animation **/
+
+        .is-animated {
+            animation: shake 1.5s ease infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: none;
+            }
+            15% {
+                transform: translatex(-30px) rotate(-25deg);
+            }
+            40% {
+                transform: translatex(15px) rotate(15deg);
+            }
+            70% {
+                transform: translatex(-10px) rotate(-5deg);
+            }
+        }
+
+        .visual {
+            width: 40%
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        section {
+            min-height: 400px;
+            display: flex;
+            position: relative;
+            width: 100%;
+            background-color: rgba(250, 250, 250, 1);
+            border: 1px solid rgba(54, 69, 79, .15);
+            border-radius: 5px;
+            box-shadow: .5rem .5rem 1rem rgba(54, 69, 79, .25);
+        }
+
+        section:nth-of-type(even) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+
+        .code {
+            border-left: 1px solid rgba(54, 69, 79, 1);
+            width: 60%;
+        }
+
+        code {
+            position: relative;
+            display: block;
+            font-size: 1rem;
+            padding: 2rem .75rem;
+        }
+
+        .waiting {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 33%;
+        }
+
+        footer {
+            background-color: rgba(54, 69, 79, 1);
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+        }
+
+        footer span {
+            color: #fff;
+            margin-left: 2rem;
+        }
+
+        footer a {
+            color: #fff;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        footer a i {
+            margin-right: .5rem;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
+    <header></header>
+    <main>
+        <section>
+            <div class="visual">
+                <div class="pokeball" onclick="getCallback(this)">
+                </div>
+                <div class="hide charmander"></div>
+            </div>
+            <div class="code">
+                <code id="callbacks" class="hide">
+                        function removeHide(ele, data) { <br>
+                            &nbsp ele.classList.add('hide'); <br>
+                            &nbsp ele.classList.remove('is-animated');<br>
+                            &nbsp ele.nextElementSibling.classList.remove('hide');<br>
+                
+                            &nbsp if (data.name ==='bulbasaur'){<br>
+                                &nbsp &nbsp let info = document.getElementById('promises');<br>
+                                &nbsp &nbsp info.classList.remove('hide');<br>
+                                &nbsp &nbsp info.nextElementSibling.classList.add('hide');<br>
+                                &nbsp } else if (data.name ==='charmander'){<br>
+                                    &nbsp &nbsp let info = document.getElementById('callbacks');<br>
+                                    &nbsp &nbsp info.classList.remove('hide');<br>
+                                    &nbsp &nbsp info.nextElementSibling.classList.add('hide');<br>
+                                    &nbsp }<br>
+                        }<br>
+                <br>
+                        function XMLHttp(mon, element){<br>
+                            &nbsp let req = new XMLHttpRequest();<br>
+                            &nbsp if (data.target.status === 200){<br>
+                                &nbsp &nbsp removeHide(element, JSON.parse(data.target.response));<br>
+                                &nbsp } else {<br>
+                                    &nbsp &nbsp console.log('Sadness :('); <br>
+                                    &nbsp }<br>
+                <br>
+                &nbsp req.open('GET', 'http://localhost:3000/data?mon=' + mon);<br>
+                &nbsp req.send();<br>
+                        }<br>
+                <br>
+                        function getCallback(ele) {<br>
+                            &nbsp const mon = ele.nextElementSibling.classList[1];<br>
+                            &nbsp ele.classList.add('is-animated');<br>
+                            &nbsp XMLHttp(mon, ele);<br>
+                        }<br>
+                </code>
+                <div class="waiting">Reserved for Callbacks</div>
+            </div>
+        </section>
+        <section>
+            <div class="visual">
+                <div class="pokeball" onclick="getData(this)">
+                </div>
+                <div class="hide bulbasaur"></div>
+            </div>
+            <div class="code">
+                <code id="promises" class="hide">function getData(ele) { <br>
+                        &nbsp let promise = new Promise(function (resolve, reject) { <br>
+                            &nbsp &nbsp resolve(ele); <br>
+                        &nbsp }); <br>
+                        &nbsp return promise.then(element => { <br>
+                            &nbsp &nbsp const mon = element.nextElementSibling.classList[1]; <br>
+                            &nbsp &nbsp element.classList.add('is-animated'); <br>
+                            &nbsp &nbsp return {mon: mon, element: ele}; <br>
+                            &nbsp }).then(inbound => { <br>
+                                &nbsp &nbsp return fetchData(inbound.mon, inbound.element); <br>
+                            &nbsp }).catch(error => <br>
+                            &nbsp &nbsp console.log('Well, this is embarassing')); <br>
+                    } <br><br>
+                    
+                    function fetchData(mon, element) {<br>
+                        &nbsp const url = 'http://localhost:3000/data?mon=' + mon;<br>
+                        &nbsp const options = {<br>
+                            &nbsp &nbsp method: 'GET',<br>
+                            &nbsp &nbsp mode: 'no-cors'<br>
+                            &nbsp };<br>
+            <br>
+            &nbsp let req = new Request(url, options);<br>
+            <br>
+            &nbsp return fetch(req).then((data) => {<br>
+                &nbsp &nbsp return data.json();<br>
+                &nbsp }).then(data => {<br>
+                    &nbsp &nbsp return removeHide(element, data);<br>
+                    &nbsp });<br>
+                    }
+                </code>
+                <div class="waiting">Reserved for Promises</div>
+            </div>
+        </section>
+        <section>
+            <div class="visual">
+                <div class="pokeball" onclick="getData(this)">
+                </div>
+                <div class="hide squirtle"></div>
+            </div>
+            <div class="code">
+                <div class="observables waiting">Reserved for Observables</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <span>Check us out:</span>
+        <a href="https://github.com/Zer0Stra1n/Gondola" aria-placeholder="Shameless plug">
+            <i class="fab fa-github-square"></i>Zer0Stra1n</a>
+    </footer>
+    <script type="text/javascript">
 
+        function getData(ele) {
+            let promise = new Promise(function (resolve, reject) {
+                resolve(ele);
+            });
+            return promise.then(element => {
+                const mon = element.nextElementSibling.classList[1];
+                element.classList.add('is-animated');
+                return { mon: mon, element: ele };
+            }).then(inbound => {
+                return fetchData(inbound.mon, inbound.element);
+            }).catch(error => console.log('Well, this is embarassing'));
+        }
+
+        function removeHide(ele, data) {
+            ele.classList.add('hide');
+            ele.classList.remove('is-animated');
+            ele.nextElementSibling.classList.remove('hide');
+
+            if (data.name === 'bulbasaur') {
+                let info = document.getElementById('promises');
+                info.classList.remove('hide');
+                info.nextElementSibling.classList.add('hide');
+            } else if (data.name === 'charmander') {
+                let info = document.getElementById('callbacks');
+                info.classList.remove('hide');
+                info.nextElementSibling.classList.add('hide');
+            }
+        }
+
+        function XMLHttp(mon, element) {
+            let req = new XMLHttpRequest();
+            req.addEventListener('loadend', function (data) {
+                if (data.target.status === 200){
+                    removeHide(element, JSON.parse(data.target.response));
+                } else {
+                    console.log('Sadness :(');
+                }
+            });
+
+            req.open('GET', 'http://localhost:3000/data?mon=' + mon);
+            req.send();
+        }
+
+        function getCallback(ele) {
+            const mon = ele.nextElementSibling.classList[1];
+            ele.classList.add('is-animated');
+            XMLHttp(mon, ele);
+        }
+
+        function fetchData(mon, element) {
+            const url = 'http://localhost:3000/data?mon=' + mon;
+            const options = {
+                method: 'GET',
+                mode: 'no-cors'
+            };
+
+            let req = new Request(url, options);
+
+            return fetch(req).then((data) => {
+                return data.json();
+            }).then(data => {
+                return removeHide(element, data);
+            });
+        }
+
+    </script>
 </body>
 
 </html>

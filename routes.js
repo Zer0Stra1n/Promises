@@ -1,7 +1,7 @@
 'use strict';
 
 const api = module.exports,
-    data = require('./movies'),
+    axios = require('axios'),
     path = require('path');
 
 api.main = (req, res) => {
@@ -9,5 +9,8 @@ api.main = (req, res) => {
 }
 
 api.movies = (req, res) => {
-    res.status(200).json(data);
+    let url = 'https://pokeapi.co/api/v2/pokemon/' + req.query.mon
+    axios.get(url).then(resp => {
+        return res.status(200).json(resp.data);
+    }).catch(error => console.log(error));
 }
