@@ -6,5 +6,5 @@ const express = require('express'),
     app = express();
 
 app.route('/').get(routes.main);
-app.route('/data').get(routes.movies);
+app.route('/data').get(routes.data);
 app.listen(port);

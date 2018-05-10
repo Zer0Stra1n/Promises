@@ -8,7 +8,7 @@ api.main = (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 }
 
-api.movies = (req, res) => {
+api.data = (req, res) => {
     let url = 'https://pokeapi.co/api/v2/pokemon/' + req.query.mon
     axios.get(url).then(resp => {
         return res.status(200).json(resp.data);
