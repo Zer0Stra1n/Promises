@@ -126,7 +126,6 @@
             border: 5px double #fff;
             background-color: #333;
         }
-
         /** Animation **/
 
         .is-animated {
@@ -178,7 +177,7 @@
             width: 60%;
         }
 
-        code {
+        pre {
             position: relative;
             display: block;
             font-size: 1rem;
@@ -238,41 +237,33 @@
                 <div class="hide charmander"></div>
             </div>
             <div class="code">
-                <code id="callbacks" class="hide">
-                        function removeHide(ele, data) { <br>
-                            &nbsp ele.classList.add('hide'); <br>
-                            &nbsp ele.classList.remove('is-animated');<br>
-                            &nbsp ele.nextElementSibling.classList.remove('hide');<br>
+                <pre id="callbacks" class="hide">
+                    function XMLHttp(mon, element) {
+                        let req = new XMLHttpRequest();
+                        req.addEventListener('loadend', function (data) {
+                            if (data.target.status === 200){
+                                try {
+                                    let resp = JSON.parse(data.target.response);
+                                    removeHide(element, resp);
+                                } catch {
+                                    console.log('More Sadness :(');
+                                }
+                            } else {
+                                console.log('Sadness :(');
+                            }
+                        });
+                        req.overrideMimeType("application/JSON");
                 
-                            &nbsp if (data.name ==='bulbasaur'){<br>
-                                &nbsp &nbsp let info = document.getElementById('promises');<br>
-                                &nbsp &nbsp info.classList.remove('hide');<br>
-                                &nbsp &nbsp info.nextElementSibling.classList.add('hide');<br>
-                                &nbsp } else if (data.name ==='charmander'){<br>
-                                    &nbsp &nbsp let info = document.getElementById('callbacks');<br>
-                                    &nbsp &nbsp info.classList.remove('hide');<br>
-                                    &nbsp &nbsp info.nextElementSibling.classList.add('hide');<br>
-                                    &nbsp }<br>
-                        }<br>
-                <br>
-                        function XMLHttp(mon, element){<br>
-                            &nbsp let req = new XMLHttpRequest();<br>
-                            &nbsp if (data.target.status === 200){<br>
-                                &nbsp &nbsp removeHide(element, JSON.parse(data.target.response));<br>
-                                &nbsp } else {<br>
-                                    &nbsp &nbsp console.log('Sadness :('); <br>
-                                    &nbsp }<br>
-                <br>
-                &nbsp req.open('GET', 'http://localhost:3000/data?mon=' + mon);<br>
-                &nbsp req.send();<br>
-                        }<br>
-                <br>
-                        function getCallback(ele) {<br>
-                            &nbsp const mon = ele.nextElementSibling.classList[1];<br>
-                            &nbsp ele.classList.add('is-animated');<br>
-                            &nbsp XMLHttp(mon, ele);<br>
-                        }<br>
-                </code>
+                        req.open('GET', 'http://localhost:3000/data?mon=' + mon);
+                        req.send();
+                    }
+                
+                    function getCallback(ele) {
+                        const mon = ele.nextElementSibling.classList[1];
+                        ele.classList.add('is-animated');
+                        XMLHttp(mon, ele);
+                    }
+                </pre>
                 <div class="waiting">Reserved for Callbacks</div>
             </div>
         </section>
@@ -283,7 +274,7 @@
                 <div class="hide bulbasaur"></div>
             </div>
             <div class="code">
-                <code id="promises" class="hide">function getData(ele) { <br>
+                <pre id="promises" class="hide">function getData(ele) { <br>
                         &nbsp let promise = new Promise(function (resolve, reject) { <br>
                             &nbsp &nbsp resolve(ele); <br>
                         &nbsp }); <br>
@@ -312,7 +303,7 @@
                     &nbsp &nbsp return removeHide(element, data);<br>
                     &nbsp });<br>
                     }
-                </code>
+                </pre>
                 <div class="waiting">Reserved for Promises</div>
             </div>
         </section>
@@ -328,7 +319,8 @@
         </section>
 
         <div class="disclaimer">
-            Unfortunately, due to time constraits, I was not able to do my own sprite work this time.<br> I thank Kaíque Zimerer for the Pokeballs and John Flockton for the sprites.
+            Unfortunately, due to time constraits, I was not able to do my own sprite work this time.<br> I thank Kaíque
+            Zimerer for the Pokeballs and John Flockton for the sprites.
         </div>
     </main>
     <footer>
@@ -337,7 +329,6 @@
             <i class="fab fa-github-square"></i>Zer0Stra1n</a>
     </footer>
     <script type="text/javascript">
-
         function getData(ele) {
             let promise = new Promise(function (resolve, reject) {
                 resolve(ele);
@@ -370,12 +361,18 @@
         function XMLHttp(mon, element) {
             let req = new XMLHttpRequest();
             req.addEventListener('loadend', function (data) {
-                if (data.target.status === 200){
-                    removeHide(element, JSON.parse(data.target.response));
+                if (data.target.status === 200) {
+                    try {
+                        let resp = JSON.parse(data.target.response);
+                        removeHide(element, resp);
+                    } catch {
+                        console.log('More Sadness :(');
+                    }
                 } else {
                     console.log('Sadness :(');
                 }
             });
+            req.overrideMimeType("application/JSON");
 
             req.open('GET', 'http://localhost:3000/data?mon=' + mon);
             req.send();
@@ -402,7 +399,6 @@
                 return removeHide(element, data);
             });
         }
-
     </script>
 </body>
 
