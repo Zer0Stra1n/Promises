@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Promise Primer</title>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
+
+    <style>
+        html {
+            min-height: 100%;
+            position: relative;
+            font-size: 16px;
+            background-color: rgba(236, 236, 236, 1);
+            color: rgba(54, 69, 79, 1);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+            margin-bottom: 80px;
+        }
+
+        header {
+            height: 80px;
+            background-color: rgba(126, 192, 238, .5);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 .1rem 1rem rgba(54, 69, 79, .25);
+        }
+
+        .title {
+            font-size: 2rem;
+            margin-left: 2rem;
+            color: rgba(54, 69, 79, 2);
+        }
+
+        main {
+            max-width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .heading {
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        dt {
+            font-size: 1.75rem;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        dd {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+
+        .hint {
+            font-size: 1.25rem;
+        }
+
+        .examples {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        /* John Flockton Codepen sprites */
+
+        .charmander {
+            height: 0.5em;
+            width: 0.5em;
+            position: absolute;
+            top: 22%;
+            right: 13%;
+            box-shadow: 2.5em 0.5em 0 #010101, 3em 0.5em 0 #010101, 3.5em 0.5em 0 #010101, 4em 0.5em 0 #010101, 9em 0.5em 0 #010101, 2em 1em 0 #010101, 2.5em 1em 0 #FF931C, 3em 1em 0 #FF931C, 3.5em 1em 0 #FF931C, 4em 1em 0 #FF931C, 4.5em 1em 0 #010101, 8.5em 1em 0 #010101, 9em 1em 0 #FF0000, 9.5em 1em 0 #010101, 1.5em 1.5em 0 #010101, 2em 1.5em 0 #FF931C, 2.5em 1.5em 0 #FF931C, 3em 1.5em 0 #FF931C, 3.5em 1.5em 0 #FF931C, 4em 1.5em 0 #FF931C, 4.5em 1.5em 0 #FF931C, 5em 1.5em 0 #010101, 8.5em 1.5em 0 #010101, 9em 1.5em 0 #FF0000, 9.5em 1.5em 0 #FF0000, 10em 1.5em 0 #010101, 1.5em 2em 0 #010101, 2em 2em 0 #FF931C, 2.5em 2em 0 #FF931C, 3em 2em 0 #FF931C, 3.5em 2em 0 #FF931C, 4em 2em 0 #FF931C, 4.5em 2em 0 #FF931C, 5em 2em 0 #010101, 8.5em 2em 0 #010101, 9em 2em 0 #FF0000, 9.5em 2em 0 #FF0000, 10em 2em 0 #010101, 1em 2.5em 0 #010101, 1.5em 2.5em 0 #FF931C, 2em 2.5em 0 #FF931C, 2.5em 2.5em 0 #FF931C, 3em 2.5em 0 #FF931C, 3.5em 2.5em 0 #FF931C, 4em 2.5em 0 #FF931C, 4.5em 2.5em 0 #FF931C, 5em 2.5em 0 #FF931C, 5.5em 2.5em 0 #010101, 8em 2.5em 0 #010101, 8.5em 2.5em 0 #FF0000, 9em 2.5em 0 #FF0000, 9.5em 2.5em 0 #FF931C, 10em 2.5em 0 #FF0000, 10.5em 2.5em 0 #010101, 0.5em 3em 0 #010101, 1em 3em 0 #FF931C, 1.5em 3em 0 #FF931C, 2em 3em 0 #FF931C, 2.5em 3em 0 #FF931C, 3em 3em 0 #FFFFFF, 3.5em 3em 0 #010101, 4em 3em 0 #FF931C, 4.5em 3em 0 #FF931C, 5em 3em 0 #FF931C, 5.5em 3em 0 #010101, 8em 3em 0 #010101, 8.5em 3em 0 #FF0000, 9em 3em 0 #FF931C, 9.5em 3em 0 #EEF30C, 10em 3em 0 #FF0000, 10.5em 3em 0 #010101, 0.5em 3.5em 0 #010101, 1em 3.5em 0 #FF931C, 1.5em 3.5em 0 #FF931C, 2em 3.5em 0 #FF931C, 2.5em 3.5em 0 #FF931C, 3em 3.5em 0 #010101, 3.5em 3.5em 0 #010101, 4em 3.5em 0 #FF931C, 4.5em 3.5em 0 #FF931C, 5em 3.5em 0 #FF931C, 5.5em 3.5em 0 #FF931C, 6em 3.5em 0 #010101, 8em 3.5em 0 #010101, 8.5em 3.5em 0 #FF0000, 9em 3.5em 0 #EEF30C, 9.5em 3.5em 0 #EEF30C, 10em 3.5em 0 #FF0000, 10.5em 3.5em 0 #010101, 0.5em 4em 0 #010101, 1em 4em 0 #FF931C, 1.5em 4em 0 #FF931C, 2em 4em 0 #FF931C, 2.5em 4em 0 #FF931C, 3em 4em 0 #010101, 3.5em 4em 0 #010101, 4em 4em 0 #FF931C, 4.5em 4em 0 #FF931C, 5em 4em 0 #FF931C, 5.5em 4em 0 #FF931C, 6em 4em 0 #010101, 8.5em 4em 0 #010101, 9em 4em 0 #EEF30C, 9.5em 4em 0 #010101, 10em 4em 0 #010101, 1em 4.5em 0 #010101, 1.5em 4.5em 0 #FF931C, 2em 4.5em 0 #FF931C, 2.5em 4.5em 0 #FF931C, 3em 4.5em 0 #FF931C, 3.5em 4.5em 0 #FF931C, 4em 4.5em 0 #FF931C, 4.5em 4.5em 0 #FF931C, 5em 4.5em 0 #FF931C, 5.5em 4.5em 0 #FF931C, 6em 4.5em 0 #FF931C, 6.5em 4.5em 0 #010101, 8.5em 4.5em 0 #010101, 9em 4.5em 0 #FF931C, 9.5em 4.5em 0 #010101, 1.5em 5em 0 #010101, 2em 5em 0 #010101, 2.5em 5em 0 #FF931C, 3em 5em 0 #FF931C, 3.5em 5em 0 #FF931C, 4em 5em 0 #FF931C, 4.5em 5em 0 #FF931C, 5em 5em 0 #FF931C, 5.5em 5em 0 #FF931C, 6em 5em 0 #FF931C, 6.5em 5em 0 #FF931C, 7em 5em 0 #010101, 8em 5em 0 #010101, 8.5em 5em 0 #FF931C, 9em 5em 0 #FF931C, 9.5em 5em 0 #010101, 2.5em 5.5em 0 #010101, 3em 5.5em 0 #010101, 3.5em 5.5em 0 #010101, 4em 5.5em 0 #FF931C, 4.5em 5.5em 0 #FF931C, 5em 5.5em 0 #010101, 5.5em 5.5em 0 #FF931C, 6em 5.5em 0 #FF931C, 6.5em 5.5em 0 #FF931C, 7em 5.5em 0 #010101, 7.5em 5.5em 0 #010101, 8em 5.5em 0 #FF931C, 8.5em 5.5em 0 #FF931C, 9em 5.5em 0 #010101, 3em 6em 0 #010101, 3.5em 6em 0 #EEF30C, 4em 6em 0 #EEF30C, 4.5em 6em 0 #010101, 5em 6em 0 #FF931C, 5.5em 6em 0 #FF931C, 6em 6em 0 #FF931C, 6.5em 6em 0 #FF931C, 7em 6em 0 #FF931C, 7.5em 6em 0 #010101, 8em 6em 0 #FF931C, 8.5em 6em 0 #FF931C, 9em 6em 0 #010101, 3em 6.5em 0 #010101, 3.5em 6.5em 0 #EEF30C, 4em 6.5em 0 #EEF30C, 4.5em 6.5em 0 #EEF30C, 5em 6.5em 0 #010101, 5.5em 6.5em 0 #010101, 6em 6.5em 0 #FF931C, 6.5em 6.5em 0 #FF931C, 7em 6.5em 0 #FF931C, 7.5em 6.5em 0 #010101, 8em 6.5em 0 #FF931C, 8.5em 6.5em 0 #010101, 2.5em 7em 0 #010101, 3em 7em 0 #FFFFFF, 3.5em 7em 0 #010101, 4em 7em 0 #EEF30C, 4.5em 7em 0 #EEF30C, 5em 7em 0 #EEF30C, 5.5em 7em 0 #FF931C, 6em 7em 0 #FF931C, 6.5em 7em 0 #FF931C, 7em 7em 0 #FF931C, 7.5em 7em 0 #010101, 8em 7em 0 #010101, 3em 7.5em 0 #010101, 3.5em 7.5em 0 #010101, 4em 7.5em 0 #010101, 4.5em 7.5em 0 #EEF30C, 5em 7.5em 0 #EEF30C, 5.5em 7.5em 0 #FF931C, 6em 7.5em 0 #FF931C, 6.5em 7.5em 0 #FF931C, 7em 7.5em 0 #010101, 7.5em 7.5em 0 #010101, 4.5em 8em 0 #010101, 5em 8em 0 #010101, 5.5em 8em 0 #010101, 6em 8em 0 #FF931C, 6.5em 8em 0 #010101, 7em 8em 0 #010101, 5em 8.5em 0 #010101, 5.5em 8.5em 0 #FFFFFF, 6em 8.5em 0 #FF931C, 6.5em 8.5em 0 #FFFFFF, 7em 8.5em 0 #010101, 5.5em 9em 0 #010101, 6em 9em 0 #010101, 6.5em 9em 0 #010101;
+        }
+
+        /* Kaíque Zimerer Codepen pokeballs */
+
+        .pokeball {
+            position: absolute;
+            top: 35%;
+            right: 5%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient( #E53935 0%,
+            #E53935 47%,
+            #333 47%,
+            #333 53%,
+            #FFF 53%,
+            #FFF 100%);
+            border: 2px solid #333;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+            inset 20px 0 0 rgba(255, 255, 255, 0.1),
+            inset -15px 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .pokeball:before,
+        .pokeball:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pokeball:before {
+            width: 10px;
+            height: 10px;
+            background-color: #FFF;
+            border: 5px solid #333;
+            box-shadow: 5px 1px 0px rgba(0, 0, 0, 0.1),
+            -5px -1px 0px rgba(255, 255, 255, 0.1);
+        }
+
+        .pokeball:after {
+            width: 6px;
+            height: 6px;
+            border: 5px double #fff;
+            background-color: #333;
+        }
+
+        /** Animation **/
+
+        .is-animated {
+            animation: shake 1.5s ease infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: none;
+            }
+            15% {
+                transform: translatex(-30px) rotate(-25deg);
+            }
+            40% {
+                transform: translatex(15px) rotate(15deg);
+            }
+            70% {
+                transform: translatex(-10px) rotate(-5deg);
+            }
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        section {
+            padding: 3rem 1.5rem;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+            background-color: rgba(250, 250, 250, 1);
+            border: 1px solid rgba(54, 69, 79, .15);
+            border-radius: 5px;
+            box-shadow: .5rem .5rem 1rem rgba(54, 69, 79, .25);
+        }
+
+        section:nth-of-type(even) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        pre {
+            position: relative;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .waiting {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 21%;
+        }
+
+        button {
+            font-size: 1rem;
+            max-width: 12%;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            justify-content: center;
+            padding: 1rem .75rem;
+            border: 1px solid rgba(54, 69, 79, .15);
+            box-shadow: .5rem .5rem 1rem rgba(54, 69, 79, .25);
+            background-color: rgba(250, 250, 250, 1);
+        }
+
+        button i {
+            color: rgba(126, 192, 238, 1);
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+
+        footer {
+            background-color: rgba(54, 69, 79, 1);
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+        }
+
+        footer span {
+            color: #fff;
+            margin-left: 2rem;
+        }
+
+        footer a {
+            color: #fff;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        footer a i {
+            margin-right: .5rem;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="title">Promises Primer</div>
+    </header>
+    <main>
+        <section>
+            <h1>Things to remember on our journey:</h1>
+            <div class="pokeball"></div>
+            <div class="hide charmander"></div>
+            <dt>Single-threaded:</dt>
+            <dd>adjective</dd>
+            <dd>Capable of running only one thing at a time</dd>
+            <dt>Asynchronous:</dt>
+            <dd>adjective | asyn·chro·nous</dd>
+            <dd>Not simultaneous or concurrent in time</dd>
+        </section>
+        <section>
+            <div class="heading">
+                <h1>Callbacks:</h1>
+                <div class="hint">(Pro tip: We've already seen one of these!)</div>
+            </div>
+            <h2>Problem statement</h2>
+            <div>As told by a few basic examples.</div>
+            <div class = "examples">
+                <article>
+                <h4>The easy one:</h4>
+                <pre>
+function first() {
+    console.log(1);
+}
+
+function second() {
+    console.log(2);
+}
+
+first();
+section();
+
+Output:
+1
+2
+                </pre>
+                </article>
+                <article>
+                <h4>The async one:</h4>
+                <pre>
+function first() {
+    setTimeout(() => {
+        console.log(1)
+    }, 100);
+}
+
+function second() {
+    console.log(2);
+}
+
+first();
+second();
+
+Output:
+2
+1
+                </pre>
+                </article>
+                <article>
+                <h4>Maintaining order:</h4>
+                <pre>
+function first(callback) {
+    setTimeout(() => {
+        console.log(1);
+        callback();
+    }, 100);
+}
+
+function second() {
+    console.log(2);
+}
+
+first(second);
+
+Output:
+1
+2
+                </pre>
+                </article>
+            </div>
+            <h4>Then there is this...</h4>
+            <pre>
+fs.readdir(source, function (err, files) {
+    if (err) {
+        console.log('Error finding files: ' + err);
+    } else {
+        files.forEach(function (filename, fileIndex) {
+            console.log(filename);
+            gm(source + filename).size(function (err, values) {
+                if (err) {
+                    console.log('Error identifying file size: ' + err);
+                } else {
+                    console.log(filename + ' : ' + values);
+                    aspect = (values.width / values.height);
+                    widths.forEach(function (width, widthIndex) {
+                        height = Math.round(width / aspect);
+                        console.log('resizing ' + filename + 'to ' + height + 'x' + height);
+                        this.resize(width, height).write(dest + 'w' + width + '_' + filename, function(err) {
+                            if (err) console.log('Error writing file: ' + err);
+                        });
+                    }.bind(this));
+                }
+            });
+        });
+    }
+});
+            </pre>
+            </article>
+        </section>
+
+        <button onclick="navigate('comparison')">Onwards<i class="fas fa-arrow-circle-right"></i></button>
+    </main>
+    <footer>
+        <span>Check us out:</span>
+        <a href="https://github.com/Zer0Stra1n/Gondola" aria-placeholder="Shameless plug">
+            <i class="fab fa-github-square"></i>Zer0Stra1n</a>
+    </footer>
+    <script type="text/javascript">
+        window.onload = () => openBall();
+
+        function removeHide(ele, data) {
+            ele.classList.add('hide');
+            ele.classList.remove('is-animated');
+            ele.nextElementSibling.classList.remove('hide');
+        }
+
+        function openBall() {
+            let ele = document.getElementsByClassName('pokeball')[0];
+            ele.classList.add('is-animated');
+            setTimeout(() => {
+                removeHide(ele);
+            }, 3000);
+        }
+
+        function navigate(page) {
+            window.location = window.location.origin + '/' + page;
+        }
+    </script>
+</body>
+
+</html>

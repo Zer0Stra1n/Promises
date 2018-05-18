@@ -4,8 +4,12 @@ const api = module.exports,
     axios = require('axios'),
     path = require('path');
 
-api.main = (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'index.html'));
+api.comparison = (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'comparison.html'));
+}
+
+api.callbacks = (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'callbacks.html'));
 }
 
 api.data = (req, res) => {

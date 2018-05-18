@@ -7,6 +7,7 @@ const express = require('express'),
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-app.route('/').get(routes.main);
+app.route('/').get(routes.callbacks);
+app.route('/comparison').get(routes.comparison);
 app.route('/data').get(routes.data);
 app.listen(port);
