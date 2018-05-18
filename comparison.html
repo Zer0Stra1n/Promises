@@ -296,10 +296,7 @@
                 <pre id="promises" class="hide">
                     <code>
     function getData(ele) {
-        let promise = new Promise(function (resolve, reject) {
-            resolve(ele);
-        });
-        return promise.then(element => {
+        return Promise.resolve(ele).then(element => {
             const mon = element.nextElementSibling.classList[1];
             element.classList.add('is-animated');
             return { mon: mon, element: ele };
@@ -350,10 +347,7 @@
     </footer>
     <script type="text/javascript">
         function getData(ele) {
-            let promise = new Promise(function (resolve, reject) {
-                resolve(ele);
-            });
-            return promise.then(element => {
+            return Promise.resolve(ele).then(element => {
                 const mon = element.nextElementSibling.classList[1];
                 element.classList.add('is-animated');
                 return { mon: mon, element: ele };
