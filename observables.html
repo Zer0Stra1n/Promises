@@ -333,7 +333,7 @@ public checkAvailability(service: string): Observable<any>{
     });
 }
 
-checkAvailability.subscribe(data => {
+checkAvailability('service').subscribe(data => {
     console.log(data);
 }, error => console.log(error));
                 </pre>
