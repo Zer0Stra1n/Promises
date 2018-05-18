@@ -13,3 +13,5 @@ app.route('/observables').get(routes.observables);
 app.route('/comparison').get(routes.comparison);
 app.route('/data').get(routes.data);
 app.listen(port);
+
+console.log('Application loaded on: http://localhost:'+port);
