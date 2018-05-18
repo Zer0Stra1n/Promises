@@ -332,6 +332,10 @@ public checkAvailability(service: string): Observable<any>{
         return this._isServiceUp(service, content);
     });
 }
+
+checkAvailability.subscribe(data => {
+    console.log(data);
+}, error => console.log(error));
                 </pre>
                 <strong>*Observables don't return new Observables like promises. To chain, you have to supply your own.</strong>
                 </article>
