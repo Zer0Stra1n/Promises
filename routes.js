@@ -8,6 +8,14 @@ api.comparison = (req, res) => {
     res.sendFile(path.resolve(__dirname, 'comparison.html'));
 }
 
+api.promises = (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'promises.html'));
+}
+
+api.observables = (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'observables.html'));
+}
+
 api.callbacks = (req, res) => {
     res.sendFile(path.resolve(__dirname, 'callbacks.html'));
 }

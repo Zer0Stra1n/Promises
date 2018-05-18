@@ -158,10 +158,9 @@
         }
 
         section {
-            min-height: 400px;
+            min-height: 200px;
             display: flex;
             position: relative;
-            width: 100%;
             background-color: rgba(250, 250, 250, 1);
             border: 1px solid rgba(54, 69, 79, .15);
             border-radius: 5px;
@@ -196,9 +195,11 @@
             font-size: 1rem;
             max-width: 12%;
             display: flex;
+            margin-top: 2rem;
             align-items: center;
             border-radius: 5px;
             justify-content: center;
+            align-self: flex-start;
             padding: 1rem .75rem;
             border: 1px solid rgba(54, 69, 79, .15);
             box-shadow: .5rem .5rem 1rem rgba(54, 69, 79, .25);
@@ -208,20 +209,7 @@
         button i {
             color: rgba(126, 192, 238, 1);
             font-size: 1.5rem;
-        }
-
-        .next {
-            margin-left: 10px;
-        }
-
-        .prev {
             margin-right: 10px;
-        }
-
-        .btn-box {
-            justify-content: space-between;
-            margin-top: 2rem;
-            display: flex;
         }
 
         footer {
@@ -352,8 +340,7 @@
             </div>
         </section>
         <div class="btn-box">
-            <button onclick="navigate('')"><i class="prev fas fa-arrow-circle-left"></i>Retreat</button>        
-            <button onclick="navigate('promises')">Onwards<i class="next fas fa-arrow-circle-right"></i></button>        
+            <button onclick="navigate('observables')"><i class="prev fas fa-arrow-circle-left"></i>Retreat</button>        
         </div>
     </main>
     <footer>
